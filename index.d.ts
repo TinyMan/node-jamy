@@ -30,6 +30,10 @@ declare class Jamy extends EventEmitter {
 	 * True if Jamy is playing something
 	 */
 	public readonly playing: boolean;
+	/**
+	* Playback options for the transcoder
+	*/
+	public playbackOptions: Jamy.PlaybackOptions;
 
 	constructor(options?: Jamy.PlaybackOptions);
 
