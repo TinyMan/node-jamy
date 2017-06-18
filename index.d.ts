@@ -5,8 +5,7 @@
 export = Jamy;
 
 import * as EventEmitter from "events";
-import * as TimedStream from "timed-stream";
-import { Readable } from "stream";
+import { Readable, PassThrough } from "stream";
 
 /**
  * Jamy is an audio player designed to stream MSE compatible files when possible.
@@ -21,7 +20,7 @@ declare class Jamy extends EventEmitter {
 	/**
 	 * The output stream
 	 */
-	public readonly stream: TimedStream;
+	public readonly stream: PassThrough;
 	/**
 	 * The current time of the presentation, in seconds
 	 */
