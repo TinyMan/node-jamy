@@ -1,0 +1,22 @@
+{
+	"env": {
+		"commonjs": true,
+		"es6": true,
+		"node": true,
+		"mocha": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 8,
+		"sourceType": "module"
+	},
+	"rules": {
+		"no-const-assign": "error",
+		"no-this-before-super": "error",
+		"no-undef": "error",
+		"no-unreachable": "error",
+		"no-unused-vars": "warn",
+		"constructor-super": "error",
+		"valid-typeof": "warn"
+	},
+	"extends": "eslint:recommended"
+}

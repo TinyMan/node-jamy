@@ -1,0 +1,39 @@
+{
+	"name": "jamy",
+	"version": "0.1.0",
+	"description": "Jamy is a streaming Audio player for Node.Js aiming to support MSE compatible sources",
+	"main": "lib/Jamy.js",
+	"directories": {
+		"lib": "lib"
+	},
+	"scripts": {
+		"test": "mocha"
+	},
+	"keywords": [
+		"webm",
+		"player",
+		"stream",
+		"ebml"
+	],
+	"author": "TinyMan <raph.a.uzan@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"ebml": "^2.2.0",
+		"fluent-ffmpeg": "^2.1.2",
+		"media-type": "^0.3.1",
+		"request": "^2.81.0",
+		"request-promise-native": "^1.0.4",
+		"timed-stream": "^1.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "^7.0.31",
+		"chai": "^4.0.2",
+		"eslint": "^4.0.0",
+		"mocha": "^3.4.2",
+		"nock": "^9.0.13"
+	},
+	"types": "index.d.ts",
+	"engines": {
+		"node": ">=8"
+	}
+}
