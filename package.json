@@ -7,7 +7,8 @@
 		"lib": "lib"
 	},
 	"scripts": {
-		"test": "mocha"
+		"test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
+		"cover": "codecov"
 	},
 	"keywords": [
 		"webm",
@@ -18,6 +19,7 @@
 	"author": "TinyMan <raph.a.uzan@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
+		"debug": "^2.6.8",
 		"ebml": "^2.2.0",
 		"fluent-ffmpeg": "^2.1.2",
 		"media-type": "^0.3.1",
@@ -28,12 +30,23 @@
 	"devDependencies": {
 		"@types/node": "^7.0.31",
 		"chai": "^4.0.2",
+		"codecov": "^2.2.0",
 		"eslint": "^4.0.0",
+		"istanbul": "^1.1.0-alpha.1",
 		"mocha": "^3.4.2",
-		"nock": "^9.0.13"
+		"nock": "^9.0.13",
+		"rewire": "^2.5.2"
 	},
 	"types": "index.d.ts",
 	"engines": {
 		"node": ">=8"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/TinyMan/node-jamy.git"
+	},
+	"bugs": {
+		"url": "https://github.com/TinyMan/node-jamy/issues"
+	},
+	"homepage": "https://github.com/TinyMan/node-jamy#readme"
 }
