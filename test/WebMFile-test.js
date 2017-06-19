@@ -12,10 +12,36 @@ describe('WebMFile', () => {
 	const parseUint = WebMFile.__get__('parseUint');
 	const parseFloat = WebMFile.__get__('parseFloat');
 	const parseString = WebMFile.__get__('parseString');
+	const ParseError = WebMFile.__get__('ParseError');
 	it('should instanciate', done => {
 		expect(new WebMFile()).to.be.instanceOf(WebMFile)
 		done()
 	})
+	it('should correclty parse a cluster index', done => {
+		const file = new WebMFile()
+		const manifest = require(__dirname + '/samples/index-webm.manifest.json')
+		file.on('finish', () => {
+			expect(file.manifest).to.be.deep.equal(manifest)
+			done()
+		})
+		file.index = fs.readFileSync(__dirname + '/samples/index.webm')
+	});
+	it('should correctly parse Vorbis and VP8 codec string', done => {
+		const file = new WebMFile()
+		file.once('finish', () => {
+			expect(file.manifest.Type).to.be.equal("video/webm;codecs=\"vp8,vorbis\"")
+			done()
+		})
+		file.index = fs.readFileSync(__dirname + '/samples/small-vp8-vorbis.webm')
+	});
+	it('should be possible to set/get init and index segments', done => {
+		const file = new WebMFile()
+		file.init = Buffer.alloc(0)
+		file.index = Buffer.alloc(0)
+		expect(file.init).to.be.equal(file.init)
+		expect(file.index).to.be.equal(file.index)
+		done()
+	});
 	describe('parseInt', () => {
 		it('should correclty parse Int8', done => {
 			const b = Buffer.alloc(1)
@@ -33,6 +59,12 @@ describe('WebMFile', () => {
 			const b = Buffer.alloc(4)
 			b.writeInt32BE(0x7FFFFFFF)
 			expect(parseInt(b)).to.be.equal(0x7FFFFFFF)
+			done()
+		})
+		it('should correclty parse negative int', done => {
+			const b = Buffer.alloc(4)
+			b.writeInt32BE(-200)
+			expect(parseInt(b)).to.be.equal(-200)
 			done()
 		})
 	});
@@ -69,22 +101,17 @@ describe('WebMFile', () => {
 			expect(parseFloat(b)).to.be.equal(10.5)
 			done()
 		})
+		it('should throw a ParseError when trying to parse invalid sized buffer', done => {
+			const b = Buffer.alloc(7)
+			expect(() => parseFloat(b)).to.throw(ParseError)
+			done()
+		})
 	});
 	describe("parseString", () => {
 		it('should correctly parse a string', done => {
 			expect(parseString("test string")).to.be.equal('test string');
 			done()
 		})
-	});
-
-	it('should correclty parse a cluster index', done => {
-		const file = new WebMFile()
-		const manifest = require(__dirname + '/samples/index-webm.manifest.json')
-		file.on('finish', () => {
-			expect(file.manifest).to.be.deep.equal(manifest)
-			done()
-		})
-		file.index = fs.readFileSync(__dirname + '/samples/index.webm')
 	});
 
 	describe('.stream(time)', () => {
@@ -95,6 +122,38 @@ describe('WebMFile', () => {
 			expect(file.stream()).to.be.instanceof(Readable)
 			done()
 		})
+		it('should emit the error when MediaProvider cannot get init or index segments', done => {
+			const file = new WebMFile()
+			const provider = new MediaProvider()
+			file.provider = provider
+			file.on('error', () => done())
+			file.stream()
+		});
+		it("should stream init segment followed by the media clusters", done => {
+			const mp = new MediaProvider()
+			mp.getRange = function (start, end) {
+				const b = Buffer.alloc(end - start)
+				// for (let i = 0; i < b.length; i++)
+				// 	b[i] = i
+				return b
+			}
+			const file = new WebMFile({ provider: mp })
+			file.init = fs.readFileSync(__dirname + '/samples/index.webm')
+			const output = file.stream()
+			let finished = false
+			let c = 0
+			output.on('data', data => {
+				for (let i = 0; i < data.length && c < file.init.length; i++ , c++) {
+					expect(data[i]).to.be.equal(file.init[c])
+				}
+				if (c >= file.init.length) finished = true
+			})
+			output.on('end', () => {
+				expect(finished).to.be.true
+				done()
+			})
+		})
+
 	})
 	describe('.getClusterIdAt(time)', () => {
 		let file;
