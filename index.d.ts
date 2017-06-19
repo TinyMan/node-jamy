@@ -70,7 +70,9 @@ declare namespace Jamy {
 		bitDepth: number,
 		frequency: number,
 		format: string,
-		channels: number
+		channels: number,
+		inputOptions: string[],
+		outputOptions: string[]
 	}
 	export interface MediaInfos {
 		url?: string,
