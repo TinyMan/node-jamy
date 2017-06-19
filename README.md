@@ -1,4 +1,6 @@
 # Jamy
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/TinyMan/node-jamy.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/TinyMan/node-jamy.svg?branch=master)](https://travis-ci.org/TinyMan/node-jamy)
 [![codecov](https://codecov.io/gh/TinyMan/node-jamy/branch/master/graph/badge.svg)](https://codecov.io/gh/TinyMan/node-jamy)
 [![Dependency Status](https://david-dm.org/TinyMan/node-jamy.svg)](https://david-dm.org/TinyMan/node-jamy)
