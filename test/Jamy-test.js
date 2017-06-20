@@ -62,7 +62,9 @@ describe('Jamy', () => {
 				expect(defaultJamy.playing).to.be.false
 				done()
 			})
-			defaultJamy.play({ url: "http://127.0.0.1" })
+			const s = new PassThrough()
+			defaultJamy.play({ stream: s })
+			s.end()
 		})
 	})
 	describe("seek", () => {
