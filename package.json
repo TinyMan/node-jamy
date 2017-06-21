@@ -23,6 +23,7 @@
 		"ebml": "^2.2.0",
 		"fluent-ffmpeg": "^2.1.2",
 		"media-type": "^0.3.1",
+		"promise-queue": "^2.2.3",
 		"request": "^2.81.0",
 		"request-promise-native": "^1.0.4",
 		"timed-stream": "^1.0.0"
