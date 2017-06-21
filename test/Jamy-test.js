@@ -1,6 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 const { PassThrough } = require('stream')
+const commandExistsSync = require('command-exists').sync;
 
 const Jamy = require('../');
 
@@ -57,7 +58,8 @@ describe('Jamy', () => {
 			})
 			defaultJamy.play({ url: "http://127.0.0.1" })
 		})
-		it("should emit naturalEnd event", done => {
+		it("should emit naturalEnd event", function (done) {
+			if (!commandExistsSync('ffmpeg')) this.skip()
 			defaultJamy.on('naturalEnd', () => {
 				expect(defaultJamy.playing).to.be.false
 				done()
