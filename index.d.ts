@@ -59,6 +59,10 @@ declare class Jamy extends EventEmitter {
 	 * @param {number} time Timecode in seconds. If negative, timecode will be substracted from the end
 	 */
 	public seek(time: number): void;
+	/**
+	 * Check if a MIME type is supported
+	 */
+	public typeSupported(mime: string): boolean;
 
 }
 

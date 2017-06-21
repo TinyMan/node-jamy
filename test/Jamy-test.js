@@ -11,10 +11,8 @@ describe('Jamy', () => {
 		defaultJamy = new Jamy()
 	});
 	it('should instanciate', done => {
-		const options = { format: "s16le", channels: 1, frequency: 4800, bitDepth: 16 };
-		const j = new Jamy(options);
+		const j = new Jamy();
 		expect(j).to.have.property('playbackOptions')
-		expect(j.playbackOptions).to.deep.equal(options)
 		expect(j.stream).to.be.instanceOf(PassThrough)
 		done()
 	})
