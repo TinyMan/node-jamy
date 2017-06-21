@@ -1,6 +1,6 @@
 {
 	"name": "jamy",
-	"version": "0.1.2",
+	"version": "0.2.0",
 	"description": "Jamy is a streaming Audio player for Node.Js aiming to support MSE compatible sources",
 	"main": "lib/Jamy.js",
 	"directories": {
