@@ -35,7 +35,7 @@
 		"command-exists": "^1.2.2",
 		"eslint": "^4.0.0",
 		"istanbul": "^1.1.0-alpha.1",
-		"mocha": "^3.4.2",
+		"mocha": "^4.0.1",
 		"mockery": "^2.0.0",
 		"rewire": "^2.5.2"
 	},
