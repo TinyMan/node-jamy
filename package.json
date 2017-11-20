@@ -37,7 +37,7 @@
 		"istanbul": "^1.1.0-alpha.1",
 		"mocha": "^3.4.2",
 		"mockery": "^2.0.0",
-		"rewire": "^2.5.2"
+		"rewire": "^3.0.0"
 	},
 	"types": "index.d.ts",
 	"engines": {
