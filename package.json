@@ -25,17 +25,17 @@
 		"media-type": "^0.3.1",
 		"promise-queue": "^2.2.3",
 		"request": "^2.84.0",
-		"request-promise-native": "^1.0.4",
+		"request-promise-native": "^1.0.5",
 		"timed-stream": "^1.0.0"
 	},
 	"devDependencies": {
 		"@types/node": "^10.0.3",
 		"chai": "^4.0.2",
-		"codecov": "^3.0.0",
-		"command-exists": "^1.2.2",
+		"codecov": "^3.1.0",
+		"command-exists": "^1.2.8",
 		"eslint": "^5.0.1",
 		"istanbul": "^1.1.0-alpha.1",
-		"mocha": "^3.4.2",
+		"mocha": "^5.2.0",
 		"mockery": "^2.0.0",
 		"rewire": "^4.0.0"
 	},

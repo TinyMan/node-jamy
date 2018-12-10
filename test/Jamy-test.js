@@ -25,6 +25,7 @@ describe('Jamy', () => {
 			stream: new PassThrough()
 		})
 		expect(defaultJamy.seekable).to.be.false
+		defaultJamy.stop();
 		done()
 	})
 	it("should throw an error if no valid input is specified", done => {
@@ -45,6 +46,7 @@ describe('Jamy', () => {
 		it("should be false when Jamy is playing something", done => {
 			defaultJamy.play({ url: "http://127.0.0.1/" })
 			expect(defaultJamy.playing).to.be.true
+			defaultJamy.stop();
 			done()
 		})
 	})
@@ -52,6 +54,7 @@ describe('Jamy', () => {
 		it("should emit play event", done => {
 			defaultJamy.on('play', () => {
 				expect(defaultJamy.playing).to.be.true
+				defaultJamy.stop()
 				done()
 			})
 			defaultJamy.play({ url: "http://127.0.0.1" })
