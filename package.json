@@ -19,7 +19,7 @@
 	"author": "TinyMan <raph.a.uzan@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
-		"debug": "^3.1.0",
+		"debug": "^4.0.0",
 		"ebml": "^2.2.3",
 		"fluent-ffmpeg": "^2.1.2",
 		"media-type": "^0.3.1",
