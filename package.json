@@ -1,54 +1,58 @@
 {
-	"name": "jamy",
-	"version": "0.3.0",
-	"description": "Jamy is a streaming Audio player for Node.Js aiming to support MSE compatible sources",
-	"main": "lib/Jamy.js",
-	"directories": {
-		"lib": "lib"
-	},
-	"scripts": {
-		"test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
-		"cover": "codecov"
-	},
-	"keywords": [
-		"webm",
-		"player",
-		"stream",
-		"ebml"
-	],
-	"author": "TinyMan <raph.a.uzan@gmail.com>",
-	"license": "MIT",
-	"dependencies": {
-		"debug": "^4.0.0",
-		"ebml": "^2.2.3",
-		"fluent-ffmpeg": "^2.1.2",
-		"media-type": "^0.3.1",
-		"promise-queue": "^2.2.3",
-		"request": "^2.84.0",
-		"request-promise-native": "^1.0.5",
-		"timed-stream": "^1.0.0"
-	},
-	"devDependencies": {
-		"@types/node": "^12.0.0",
-		"chai": "^4.0.2",
-		"codecov": "^3.1.0",
-		"command-exists": "^1.2.8",
-		"eslint": "^6.0.0",
-		"istanbul": "^1.1.0-alpha.1",
-		"mocha": "^6.0.0",
-		"mockery": "^2.0.0",
-		"rewire": "^4.0.0"
-	},
-	"types": "index.d.ts",
-	"engines": {
-		"node": ">=8"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/TinyMan/node-jamy.git"
-	},
-	"bugs": {
-		"url": "https://github.com/TinyMan/node-jamy/issues"
-	},
-	"homepage": "https://github.com/TinyMan/node-jamy#readme"
+  "name": "jamy",
+  "version": "0.3.0",
+  "description": "Jamy is a streaming Audio player for Node.Js aiming to support MSE compatible sources",
+  "main": "lib/Jamy.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
+    "cover": "codecov",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "keywords": [
+    "webm",
+    "player",
+    "stream",
+    "ebml"
+  ],
+  "author": "TinyMan <raph.a.uzan@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^4.0.0",
+    "ebml": "^2.2.3",
+    "fluent-ffmpeg": "^2.1.2",
+    "media-type": "^0.3.1",
+    "promise-queue": "^2.2.3",
+    "request": "^2.84.0",
+    "request-promise-native": "^1.0.5",
+    "timed-stream": "^1.0.0",
+    "snyk": "^1.192.3"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "chai": "^4.0.2",
+    "codecov": "^3.1.0",
+    "command-exists": "^1.2.8",
+    "eslint": "^6.0.0",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^6.0.0",
+    "mockery": "^2.0.0",
+    "rewire": "^4.0.0"
+  },
+  "types": "index.d.ts",
+  "engines": {
+    "node": ">=8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TinyMan/node-jamy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TinyMan/node-jamy/issues"
+  },
+  "homepage": "https://github.com/TinyMan/node-jamy#readme",
+  "snyk": true
 }
