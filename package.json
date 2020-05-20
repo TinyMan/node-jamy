@@ -29,7 +29,7 @@
     "request": "^2.84.0",
     "request-promise-native": "^1.0.5",
     "timed-stream": "^1.0.0",
-    "snyk": "^1.317.0"
+    "snyk": "^1.323.1"
   },
   "devDependencies": {
     "@types/node": "^14.0.1",
