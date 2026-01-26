@@ -27,7 +27,7 @@
     "media-type": "^0.3.1",
     "promise-queue": "^2.2.3",
     "request": "^2.84.0",
-    "request-promise-native": "^1.0.5",
+    "request-promise-native": "^1.0.9",
     "timed-stream": "^1.0.0",
     "snyk": "^1.685.0"
   },
